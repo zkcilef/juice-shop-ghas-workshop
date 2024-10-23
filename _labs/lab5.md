@@ -2,6 +2,11 @@
 
 Let's use Secret Scanning with push protections to prevent secrets from entering the codebase!
 
+This lab covers parts of the following exam domains:
+
+Domain 2: Configure and use secret scanning
+Domain 6: Describe GitHub Advanced Security best practices
+
 ## Exercise 1: Attempt to commit a secret
 
 1. Let's try to commit a secret to the repository to test out the secret scanning push protection feature.
