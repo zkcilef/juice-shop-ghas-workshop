@@ -42,9 +42,8 @@ Domain 4: Configure and use code scanning
 5. You can manually close an alert by clicking on the **Dismiss alert** button in the upper right hand corner. It's not recommended to close alerts manually, but there may be times where this is helpful (for example, the code that contains the alert is not used).
     - If you resolve an alert by upgrading to a non-vulnerable version, Dependabot will automatically close the alert!
 6. If there is a non-vulnerable package version to update to, you will see a **Create Dependabot security update** button to queue Dependabot to attempt to create a pull request automatically to upgrade the vulnerable dependency. With this feature, assuming your build and tests pass, you can merge the pull request to close the alert.
-    - TODO: Do we want to have them actually do this? or do you think showing/telling them about it is good. enough. Right now I think showing/telling is good enough. We can always add steps to have them do it if we need to lengthen the labs
 7. Go **back** to the prior page and let's take a look at the list of Dependabot alerts again.
-8. We can filter by **Package**, **Ecosystem**, **Manifest**, and **Severity**. For example, sometimes upgrading just one package can resolve multiple security alerts, so this can be a great way to prioritize fixes.
+8. We can filter by **Package**, **Ecosystem**, **Manifest**, and **Severity**. For example, sometimes upgrading just one package can resolve multiple security alerts, so this can be a great way to prioritize fixes. You can see this, if you enabled Dependabot security updates, by the fact that multiple Dependabot alerts are tied to the same PR.
 
 <details>
   <img src="images/lab-2-1-4.png"/>
@@ -93,15 +92,21 @@ Domain 4: Configure and use code scanning
 9. Oftentimes, there will be a lot of information to help understand the vulnerability and how to fix it. There should be a **Show more** expandable section that will show more information about the type of vulnerability you're working with.
 10. In the upper right-hand corner, there is a **Generate fix** button to use Copilot to generate a fix for the vulnerability. Click it! This is a great way to learn how to fix the vulnerability and to see how to fix it in the context of your code.
 11. It will take a little time to generate a suggestion. Wait for it to finish.
-12. If you're happy with the suggestion, click the **Create PR with fix** button. This will create a draft pull request with the fix for the vulnerability. In a real world example, assuming your build and tests pass, you would merge the PR.
+12. If you're happy with the suggestion, click the **Commit to a new branch** button.
+13. Accept the defaults and click **Commit change**.
+14. This will create a draft pull request with the fix for the vulnerability. In a real world example, assuming your build and tests pass, you would move the PR out of a draft state and merge it.
 
 <details>
   <img src="images/lab-2-2-4.png"/>
 </details>
 
-13. The nice thing with code scanning alerts (just like Dependabot alerts) is that once you merge the code that resolves an alert, the alert will be automatically closed. This is because the alert is no longer present in the code. After merging the code into the default branch, a code scan will run and once it finishes, the alert will be closed. You can test this by merging the pull request we just created! It will take a few minutes for the code scanning to run and close the alert
-14. If you did merge the pull request, check back on the list of code scanning alerts under the **Security** tab in the repo. Once the code scan finishes running, you should see one (1) **Closed** alert listed.
-    - #TODO: May have to flesh this out more (see comment: https://github.com/joshjohanning-org/universe2024-ghas-workshop/pull/1/files#r1760207693)
+13. The nice thing with code scanning alerts (just like Dependabot alerts) is that once you merge the code that resolves an alert, the alert will be automatically closed. This is because the alert is no longer present in the code. After merging the code into the default branch, a code scan will run and once it finishes, the alert will be closed. You can test this by merging the pull request we just created! It will take a few minutes for the code scanning to run and close the alert.
+14. Click the **Ready for review** button on the pull request. This moves the pull request out of the draft state
+15. Click the **Merge pull request button**, followed by the **Confirm merge** button.
+16. Let's go watch the workflow run. Select the **Actions** tab at the top of the page.
+17. Select **CodeQL** on the left side of the page. This shows you all the default runs for the CodeQL workflow. You should see a workflow running right now.
+18. Click the running workflow to see the details of the run.
+19. Once the workflow completes successfully, return to the **Security** tab and check back on the list of code scanning alerts. You should see one (1) **Closed** alert listed.
 
 > [!NOTE]  
 > You don't need a Copilot license in order to use the Copilot features with GitHub Advanced Security. However, Copilot can certainly be helpful in resolving issues in your IDE and Copilot chat can explain the vulnerability and how to fix it.
