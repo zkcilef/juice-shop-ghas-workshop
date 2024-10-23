@@ -4,8 +4,8 @@ With Dependency Review enabled and configured, we want to block vulnerable packa
 
 This lab covers parts of the following exam domains:
 
-Domain 3: Configure and use dependency management
-Domain 6: Describe GitHub Advanced Security best practices
+- Domain 3: Configure and use dependency management
+- Domain 6: Describe GitHub Advanced Security best practices
 
 ## Exercise 1: Add the Dependency Review Action
 
@@ -22,7 +22,7 @@ First, let's add the dependency review action workflow.
 
 5. Review the action and its defaults on line 32-39. This action can also block specific open source license types.
 6. In the upper right, click on **Commit changes...**
-7. Since we have a ruleset, we have to create a branch and merge this to main via pull request. Create a branch and commit (**propose**) the changes.
+7. Since we have a ruleset, we have to create a branch and merge this to main via pull request. Create a branch and commit (**Propose changes**) the changes.
 
 <details>
   <img src="images/lab-4-1-2.png"/>
@@ -54,7 +54,7 @@ First, let's add the dependency review action workflow.
   <img src="images/lab-4-1-5.png"/>
 </details>
 
-17. Save the ruleset.
+17. Save the changes to the ruleset.
 
 ## Exercise 2: Introduce a dependency vulnerability
 
@@ -68,21 +68,31 @@ Now, let's attempt to add a vulnerable dependency to the codebase and test out t
 </details>
 
 3. Navigate back to the **Code** tab in the repo.
-4. Switch to the `lab4/dependency-vulnerability` branch.
+4. Click the **package.json** file to open it
+5. Click the pencil icon at the top right of the file to go into edit mode
+6. Go to the end of line 181 and hit Enter to create a blank line for line 182
+7. Add the following code to line 182:
+
+```
+"tar": "2.2.2",
+```
+
+8. Click the **Commit changes** button.
+9. Change the branch name to **lab4/dependency-vulnerability** and click **Propose changes** to start a pull request
+10. Switch to the `lab4/dependency-vulnerability` branch.
     - You can change to this branch by selecting the **main** dropdown below the repository name when under the **Code** tab.
-5. Open up the `package.json` file in the repository root.
-6. Navigate to line 182 and review this line - this branch has a change to introduce the `"tar": "2.2.2"` package to the codebase - a package with a known vulnerability.
+11. Open up the `package.json` file in the repository root.
+12. Navigate to line 182 and review this line - this branch has a change to introduce the `"tar": "2.2.2"` package to the codebase - a package with a known vulnerability.
 
 <details>
   <img src="images/lab-4-2-2.png"/>
 </details>
 
 7. Create a pull request by navigating the the **Pull requests** tab and clicking on the **New pull request** button.
-8. Make sure to select the `lab4/dependency-vulnerability` branch to merge into the `main` branch. Also make sure to use Copilot to generate a PR summary for you
-   If you scroll down to the status check section of the PR, you should see a note: "This branch is out-of-date with the base branch".
-10. Click on the **Update branch** button; this adds in the dependency review workflow you committed in the prior exercise. TODO: verify this works correctly
-11. Wait for the dependency review job to finish.
-12. It should make a comment to the pull request with a note that it found a vulnerable package dependency. In fact, adding this one vulnerable package would introduce 3 new vulnerabilities to our codebase.
+8. Use Copilot to generate a PR summary for you
+9. Click the **Create pull request** button
+10. Wait for the dependency review job to finish.
+11. It should make a comment to the pull request with a note that it found a vulnerable package dependency. In fact, adding this one vulnerable package would introduce 3 new vulnerabilities to our codebase.
 
 <details>
   <img src="images/lab-4-2-3.png"/>
