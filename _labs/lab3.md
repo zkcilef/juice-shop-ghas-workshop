@@ -17,20 +17,49 @@ Domain 6: Describe GitHub Advanced Security best practices
 </details>
 
 2. Give it a few moments to load the repository. Codespaces allows you full access to a cloud compute environment to develop and debug your code. It's a great way to get started with a project quickly and to contribute to open source projects.
-3. Switch to the `lab3/code-scanning-vulnerability` branch. This branch has a commit with an intentional security vulnerability in it. To switch branches, you can:
-    - In the lower left of the Codespace, click on `main` and pick the branch.
-    - Otherwise, in a terminal (CTRL/CMD + `` ` `` ) and enter: `git checkout lab3/code-scanning-vulnerability`
-4. Open the `routes/login.ts` file. This file has a security vulnerability in it.
-5. Highlight line 36. Let's ask Copilot Chat to explain this line of code. With line 36 highlighted, **right click --> Copilot --> Explain**.
+3. Now Josh has given you a new piece of code to add to the **routes/login.ts** file.
+4. We need to create a new branch. Click **main** in the taskbar at the bottom of VSCode.
+5. Select **Create new branch**, enter **lab3/code-scanning-vulnerability**, and hit Enter. The branch will be created and VSCode will switch to the branch.
+6. Open the **routes/login.ts** file.
+7. Find lines 36-46 and delete them
+
+```
+models.sequelize.query(
+      'SELECT * FROM Users WHERE email = :email AND password = :password AND deletedAt IS NULL',
+      {
+        replacements: {
+          email: req.body.email || '',
+          password: security.hash(req.body.password || '')
+        },
+        model: UserModel,
+        plain: true
+      }
+    )
+```
+
+8. At line 36, add the following code:
+
+```
+models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: UserModel, plain: true })
+```
+
+9. You know what? Maybe we should double-check this code from Josh. Highlight line 36. Let's ask Copilot Chat to explain this line of code. With line 36 highlighted, **right click** on the line and select **Copilot --> Explain**.
 
 <details>
   <img src="images/lab-3-1-2.png"/>
 </details>
 
-6. Copilot chat should open up and explain what this line is doing. And oh no, read it thoroughly - it tells us we have a vulnerability! 😱
-7. We can ask Copilot chat how we could fix it. Better yet, do this: right click on line 36 and select **Copilot --> Fix**. ❗️❗️ We don't want to save anything though, so just review the fix for now. ❗️❗️
-8. Let's create a pull request for this branch to attempt to merge it into main.
+10. Copilot chat should open up and explain what this line is doing. And oh no, read it thoroughly - it tells us we have a vulnerability! 😱
+11. We can ask Copilot chat how we could fix it. Better yet, do this: right click on line 36 and select **Copilot --> Fix**. ❗️❗️ We don't want to save anything though, so just review the fix for now. Don't accept this change, discard it.❗️❗️
+12. Let's push our new branch and changes up to GitHub. Select the **Source Control** extension on the left side of Visual Studio Code
+13. Click the **+** button next to **login.ts** to stage the changes
+14. Add a commit message and click **Commit**.
+15. Click **Publish Branch** to push your new branch with the code changes to GitHub.
+16. Let's create a pull request for this branch to attempt to merge it into main.
     - In another browser tab, navigate back to the repository --> **Pull requests** tab --> **New pull request** button --> select the `lab3/code-scanning-vulnerability` to merge into `main`.
+    - Click **Create pull request**
+    - In the pull request description, click the Copilot icon on the bar and have Copilot generate a pull request summary for you.
+    - Click **Create pull request**
 9. After the pull request is created, the code scanning job will have been initiated. You can see the status of the job in the pull request checks. It will take a few minutes to run.
 
 <details>
@@ -39,7 +68,7 @@ Domain 6: Describe GitHub Advanced Security best practices
 
 10. CodeQL should find the vulnerability, so the check will fail. Also, we should see Copilot create us an autofix on the PR that we can review.
 11. It might take Copilot a few moments to create the autofix.
-12. Review the autofix - we can prevent a vulnerability from entering the repository now with a click of a button! 🎉But don't commit the suggestion yet.
+12. Review the autofix - we can prevent a vulnerability from entering the repository now with a click of a button! 🎉**But don't commit the suggestion yet.**
 
 <details>
   <img src="images/lab-3-1-4.png"/>
@@ -47,7 +76,7 @@ Domain 6: Describe GitHub Advanced Security best practices
 
 ## Exercise 2: Creating a code scanning ruleset
 
-Without a ruleset (GitHub's newer version of branch protections), even though CodeQL found the vulnerability, a developer could still merge the code mistakenly, or merge the code before the CodeQL checks finish. Let's prevent this!
+Without a ruleset (GitHub's new version of branch protections), even though CodeQL found the vulnerability, a developer could still merge the code mistakenly, or merge the code before the CodeQL checks finish. Let's prevent this!
 
 > [!NOTE]  
 > We have to wait for the PR check to finish entirely (with a pass or fail) in order to create the ruleset properly!
