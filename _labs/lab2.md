@@ -1,6 +1,12 @@
-a# Lab 2 - Reviewing and Managing Security Alerts
+## Lab 2 - Reviewing and Managing Security Alerts
 
 Now that we have all of the security feature enabled, let's review the security alerts that have been created and how to manage them.
+
+This lab covers parts of the following exam domains:
+
+Domain 2: Configure and use secret scanning
+Domain 3: Configure and use dependency management
+Domain 4: Configure and use code scanning
 
 ## Exercise 1: Reviewing Dependabot alerts
 
