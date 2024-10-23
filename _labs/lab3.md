@@ -2,6 +2,12 @@
 
 With Code Scanning enabled, we want to block vulnerable code from entering the codebase. We can define a repository ruleset to enforce this. Also, let's see how Copilot Autofix can help fix security vulnerabilities for us.
 
+This lab covers parts of the following exam domains:
+
+Domain 4: Configure and use code scanning
+Domain 5: Use code scanning with CodeQL
+Domain 6: Describe GitHub Advanced Security best practices
+
 ## Exercise 1: Introduce a code scanning security vulnerability
 
 1. Let's open up the repository in Codespaces! Navigate to the **Code** tab in the repo and click on the green **Code ▾** button. Then, click on **Codespaces** tab and **Create codespace on main**.
