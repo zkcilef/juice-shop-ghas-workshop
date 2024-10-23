@@ -4,8 +4,8 @@ Let's use Secret Scanning with push protections to prevent secrets from entering
 
 This lab covers parts of the following exam domains:
 
-Domain 2: Configure and use secret scanning
-Domain 6: Describe GitHub Advanced Security best practices
+- Domain 2: Configure and use secret scanning
+- Domain 6: Describe GitHub Advanced Security best practices
 
 ## Exercise 1: Attempt to commit a secret
 
@@ -32,10 +32,7 @@ Domain 6: Describe GitHub Advanced Security best practices
     3. As a GitHub organization owner, you can add in a link that appears in the terminal output that links to a GitHub wiki, readme, etc. that explains to the developer on how to resolve the issue. For example, you can instruct the developer to run a `git reset HEAD~1`, where `1` is the number of commits they need to rewind in order to remove the commit with the secret.
 14. Depending on how the settings are configured, we could bypass the push protection and push the secret to the repository. But, we don't want to do that! 🙅‍♂️ Repository admins and organization owners would receive an email notification if we did.
 15. BONUS: If you used the browser to commit a secret, switch to Codespaces and try to commit and push the secret. If you used Codespaces, try using the browser to commit and push the secret. See how the experience differs, but the end result is still the same: no secrets committed to the repository!
-
-## Exercise 2: Managing Secret Alerts
-
-TODO: Do we want an exercise here on closing a secret alert manually? We can pretend that for one of the secret alerts, we went to the cloud provider and revoked the token, so now we can go and close the alert and note that on the repo. See comment: https://github.com/joshjohanning-org/universe2024-ghas-workshop/pull/1/files/71e88234cd01574b5c4747cc313b3e10b2f6f678#r1760213523
+16. BONUS BONUS: Ok, go ahead and push the secret anyway and see what happens. Did you get a secret scanning alert? If so, does the alert say the secret is valid?
 
 ## Summary
 
