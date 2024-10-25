@@ -41,9 +41,22 @@ This lab covers parts of the following exam domains:
 
 5. You can manually close an alert by clicking on the **Dismiss alert** button in the upper right hand corner. It's not recommended to close alerts manually, but there may be times where this is helpful (for example, the code that contains the alert is not used).
     - If you resolve an alert by upgrading to a non-vulnerable version, Dependabot will automatically close the alert!
-6. If there is a non-vulnerable package version to update to, you will see a **Create Dependabot security update** button to queue Dependabot to attempt to create a pull request automatically to upgrade the vulnerable dependency. With this feature, assuming your build and tests pass, you can merge the pull request to close the alert.
-7. Go **back** to the prior page and let's take a look at the list of Dependabot alerts again.
-8. We can filter by **Package**, **Ecosystem**, **Manifest**, and **Severity**. For example, sometimes upgrading just one package can resolve multiple security alerts, so this can be a great way to prioritize fixes. You can see this, if you enabled Dependabot security updates, by the fact that multiple Dependabot alerts are tied to the same PR.
+6. Go back a page and return to the list of Dependabot alerts.
+7. Click on the `Command Injection in marsdb` alert. You will note that this alert does not have a non-vulnerable version to upgrade to.
+    - If this were a real application, you would need to evaluate your risk to keeping this package in place, migrate to a different package, or write the functionality in-house.
+8. Go back a page and return to the list of Dependabot alerts.
+9. Click on the `Verification Bypass in jsonwebtoken` alert. This alert *does* have a non-vulnerable version to upgrade to.
+10. If Dependabot has finished running, you should see a **Review security update** button attempt. If you see it, click it.
+    - If you don't see it, skip to the next step. You can return to this step later after Dependabot finishes its initial run.
+    - Review the PR that Dependabot created.
+    - In the **Files changed** tab, you should see it upgrading the `package.json` file.
+    - Back on the **Conversation** tab, you can see that the compatibility score is pretty low - this is an indication that you would likely going to have to make code changes to accept this PR.
+    - Dependabot security updates is a great feature because assuming your build and tests pass, you can merge the PR and automatically close the alert.
+11. Navigate **back** to the **Dependabot** alerts page and let's take a look at the list of Dependabot alerts one final time.
+12. We can filter by **Package**, **Ecosystem**, **Manifest**, and **Severity**. For example, sometimes upgrading just one package can resolve multiple security alerts, so this can be a great way to prioritize fixes.
+    - Note that if you click the package dropdown, one package has 6 alerts associated with it (all linked to the same PR).
+    - This is a great place to start if you are looking to start prioritizing which alerts to fix first.
+    - Reviewing the **Critical** and **High** security alerts is another great place to start when prioritizing.
 
 <details>
   <img src="images/lab-2-1-4.png"/>
@@ -88,25 +101,32 @@ This lab covers parts of the following exam domains:
   <img src="images/lab-2-2-3.png"/>
 </details>
 
-8. CodeQL works by scanning the sources and sinks; as an example, the source is the user input and the sink is the database query. Click on the **Show paths** link to review the vulnerability from the source to the sink. This can help you understand the vulnerability and track it throughout the application to better understand how to fix it.
-9. Oftentimes, there will be a lot of information to help understand the vulnerability and how to fix it. There should be a **Show more** expandable section that will show more information about the type of vulnerability you're working with.
-10. In the upper right-hand corner, there is a **Generate fix** button to use Copilot to generate a fix for the vulnerability. Click it! This is a great way to learn how to fix the vulnerability and to see how to fix it in the context of your code.
-11. It will take a little time to generate a suggestion. Wait for it to finish.
+8. Click on the **Show paths** link to review the vulnerability from the source to the sink.
+    - CodeQL works by scanning the sources and sinks; as an example, the source is the user input and the sink is the database query
+    - This can help you understand the vulnerability and track it throughout the application to better understand how to fix it.
+9. Click on the **Show more** expandable section near the bottom of the page.
+    - This will show more information about the type of code vulnerability you're working with, how to avoid it, and how to fix it.
+10. Right below the alert title on the right hand side, there is a **Generate fix** button. Click it!
+    - This uses the AI power of Copilot to generate a fix for the vulnerability.
+    - This is a great way to learn how to fix the vulnerability and to see how to fix it in the context of your code.
+11. It will take a little time (30-60s) to generate a suggestion. Wait for it to finish.
 12. If you're happy with the suggestion, click the **Commit to a new branch** button.
 13. Accept the defaults and click **Commit change**.
-14. This will create a draft pull request with the fix for the vulnerability. In a real world example, assuming your build and tests pass, you would move the PR out of a draft state and merge it.
-
+14. This will create a draft pull request with the fix for the vulnerability. In a real world example, assuming your build and tests pass, you would move the PR out of a draft state, having someone on your team review it, and then merge the change.
+    - The nice thing with code scanning alerts (just like Dependabot alerts) is that once you merge the code that resolves an alert, the alert will be automatically closed. This is because the alert is no longer present in the code.
 <details>
   <img src="images/lab-2-2-4.png"/>
 </details>
 
-13. The nice thing with code scanning alerts (just like Dependabot alerts) is that once you merge the code that resolves an alert, the alert will be automatically closed. This is because the alert is no longer present in the code. After merging the code into the default branch, a code scan will run and once it finishes, the alert will be closed. You can test this by merging the pull request we just created! It will take a few minutes for the code scanning to run and close the alert.
-14. Click the **Ready for review** button on the pull request. This moves the pull request out of the draft state
-15. Click the **Merge pull request button**, followed by the **Confirm merge** button.
-16. Let's go watch the workflow run. Select the **Actions** tab at the top of the page.
-17. Select **CodeQL** on the left side of the page. This shows you all the default runs for the CodeQL workflow. You should see a workflow running right now.
-18. Click the running workflow to see the details of the run.
-19. Once the workflow completes successfully, return to the **Security** tab and check back on the list of code scanning alerts. You should see one (1) **Closed** alert listed.
+15. We will merge this in change in. But first, we have to wait for the CodeQL workflow to finish running to ensure we aren't introducing any *new* vulnerabilities into the codebase. The workflow run will take 2-5 minutes.
+16. Once the workflow finishes, click **Ready for review**. This moves the pull request out of the draft state.
+17. Afterwards, click **Merge pull request** and then **Confirm merge**.
+    - After merging the code into the default branch, a code scan will run and once it finishes, the alert will be closed.
+    - You can test this by merging the pull request we just created! It will take a few minutes for the code scanning to run and close the alert.
+18. Now that our new code has been merged, let's go watch the workflow scan run. Click on the **Actions** tab at the top of the page.
+19. Select **CodeQL** on the left side of the page. This shows you all the default runs for the CodeQL workflow. You should see a workflow running right now for our push to main
+20. Click the running workflow to see the details of the run. You can review the logs to see what CodeQL is doing behind the scenes here if you want!
+21. Once the workflow completes successfully, return to the **Security** tab and check back on the list of code scanning alerts. You should see one (1) **Closed** alert listed - yay! 🎉
 
 > [!NOTE]  
 > You don't need a Copilot license in order to use the Copilot features with GitHub Advanced Security. However, Copilot can certainly be helpful in resolving issues in your IDE and Copilot chat can explain the vulnerability and how to fix it.
@@ -115,19 +135,21 @@ This lab covers parts of the following exam domains:
 
 1. Under the **Security** tab in the repo, click on the **Secret scanning** --> **Default** option. This will show all of the default secret scanning alerts.
 2. You should see a number of alerts. For example, there should be a **GitHub Personal Access token alert**. Click it.
+    - This page shows where in the code the secret was discovered (if there were multiple locations, it would list them all).
+    - If a secret is found in the code, we would want to revoke manually in the designated service.
+    - It's recommended to revoke the secret instead of rewriting history because the secret was exposed and you don't know who may have seen it.
+    - If you re-write history, the secret will still be valid and could be used by an attacker. Also, re-writing history modifies commit hashes and can make traceability more difficult.
 
 <details>
   <img src="images/lab-2-3-1.png"/>
 </details>
 
-3. This alert shows where in the code the secret was discovered (if there were multiple locations, it would list them all).
-4. If a secret is found in the code, we would want to revoke manually in the designated service. It's recommended to revoke the secret instead of rewriting history because the secret was exposed and you don't know who may have seen it. If you rewrite history, the secret will still be valid and could be used by an attacker. Also, rewriting history modifies commit hashes and can make traceability more difficult.
-5. You can click on **Verify secret**. It will say it's not currently valid on github.com, but that doesn't mean it doesn't come from another GitHub instance (such as GitHub Enterprise Server).
-6. Go back to list of secret scanning alerts. Click on the **Google API key** alert.
-7. Click on **Verify secret** again. This time, it should say **secret inactive**. This is a good candidate to **Close as** --> **Revoked** (click the **Close as** button in the upper right to do so). Do this.
-8. Unlike Dependabot alerts and Code Scanning alerts, secret scanning alerts are not automatically closed when the secret is removed from the code - whether by a new commit or by rewriting history. This is because the secret was exposed and you don't know who may have seen it. So, you have to manually close the alert once you revoke the token.
-9. Navigate back to the **Default** secret alerts list.
-10. We can click **1 Closed** to see the alert we just closed.
+3. You can click on **Verify secret**. It will say it's not currently valid on `github.com`, but that doesn't mean it doesn't come from another GitHub instance (such as GitHub Enterprise Server).
+4. Go back to list of secret scanning alerts. Click on the **Google API key** alert.
+5. Click on **Verify secret** again. This time, it should say **secret inactive**. This is a good candidate to **Close as** --> **Revoked** (click the **Close as** button in the upper right to do so). Do this.
+    - Unlike Dependabot alerts and Code Scanning alerts, secret scanning alerts are not automatically closed when the secret is removed from the code - whether by a new commit or by re-writing history. This is because the secret was exposed and you don't know who may have seen it. So, you have to manually close the alert once you revoke the token.
+6. Navigate back to the **Default** secret alerts list.
+7. We can click **1 Closed** to see the alert we just closed.
 
 <details>
   <img src="images/lab-2-3-2.png"/>
@@ -140,8 +162,10 @@ This lab covers parts of the following exam domains:
   <img src="images/lab-2-3-3.png"/>
 </details>
 
-13. Just like high confidence alerts, it shows where the secret was found in the code. The secret was found with AI, so it may or may not be a real secret or password. If it's not, we can close it manually and mark it as a false positive.
+13. Just like high confidence secret scanning alerts, it shows where the secret was found in the code. The secret was found with AI, so it may or may not be a real secret or password. If it's not, we can close it manually and mark it as a false positive.
 
 ## Summary
 
 Well done! You've learned how to review and triage alerts from Dependabot, code scanning, and secret scanning. And you even saw how you can use Copilot to automatically fix a code scanning alert. In the next lab, we are going to to get hands-on with code scanning, repository rulesets, and Copilot, to see how we can both prevent and fix vulnerabilities in our code base.
+
+➡️ Head back to the [labs](README.md) page to continue on to the next lab.
