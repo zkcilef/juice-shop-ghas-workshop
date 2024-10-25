@@ -28,7 +28,7 @@ First, let's add the dependency review action workflow.
   <img src="images/lab-4-1-2.png"/>
 </details>
 
-8. On the next screen, use the Copilot icon to generate a pull request description. Use either outline or summary.
+8. On the next screen, use the Copilot icon in the formatting bar to generate a pull request description.
 
 <details>
   <img src="images/lab-4-1-3.png"/>
@@ -36,8 +36,7 @@ First, let's add the dependency review action workflow.
 
 9. Click **Create pull request**.
 10. Wait for the code scanning job to finish. It will take a few minutes to run.
-  
-  - You will notice that the Dependency Review workflow ran against this PR and found nothing wrong.
+    - You will notice that the Dependency Review workflow ran against this PR and didn't report any issues.
 
 <details>
   <img src="images/lab-4-1-4.png"/>
@@ -45,63 +44,53 @@ First, let's add the dependency review action workflow.
 
 11. Merge the PR once the code scanning completes.
 12. Navigate to **Settings** of the repo.
-13. Navigate to **Rules --> Rulesets** again to modify the existing ruleset you created in lab 3.
-14. Under the **Require status checks to pass**, click on the **Show additional settings** button.
-15. Click on **Add checks**.
-16. Search for `dependency-review` and add it (it should show up under **suggestions**).
+13. Navigate to **Rules --> Rulesets**.
+14. Click on the name of the ruleset you created in lab 3 to modify it.
+15. Under the **Require status checks to pass**, click on the **Show additional settings** button.
+16. Click on **Add checks**.
+17. Search for `dependency-review` and add it (it should show up under **suggestions**).
 
 <details>
   <img src="images/lab-4-1-5.png"/>
 </details>
 
-17. Save the changes to the ruleset.
+18. Save the changes to the ruleset.
 
 ## Exercise 2: Introduce a dependency vulnerability
 
 Now, let's attempt to add a vulnerable dependency to the codebase and test out the dependency review feature.
 
-1. In the repository, navigate to the **Settings** page.
-2. ❗️ Scroll down to under the **Pull requests** settings section and check the box for **Always suggest updating pull request branches**. ❗️
-
-<details>
-  <img src="images/lab-4-2-1.png"/>
-</details>
-
-3. Navigate back to the **Code** tab in the repo.
-4. Click the **package.json** file to open it
-5. Click the pencil icon at the top right of the file to go into edit mode
-6. Go to the end of line 181 and hit Enter to create a blank line for line 182
-7. Add the following code to line 182:
+1. Navigate back to the **Code** tab in the repo.
+2. Click the **package.json** file in the root of the repository to open it.
+3. Click the **pencil** ✏️ icon at the top right of the file to go into edit mode.
+4. Go to the end of line 181 and hit Enter to create a blank line for line 182.
+5. Add the following code to line 182, making sure to include the comma at the end of the line:
 
 ```
 "tar": "2.2.2",
 ```
 
-8. Click the **Commit changes** button.
-9. Change the branch name to **lab4/dependency-vulnerability** and click **Propose changes** to start a pull request
-10. Switch to the `lab4/dependency-vulnerability` branch.
-    - You can change to this branch by selecting the **main** dropdown below the repository name when under the **Code** tab.
-11. Open up the `package.json` file in the repository root.
-12. Navigate to line 182 and review this line - this branch has a change to introduce the `"tar": "2.2.2"` package to the codebase - a package with a known vulnerability.
+<details>
+  <img src="images/lab-4-2-1.png"/>
+</details>
+
+6. Click the **Commit changes** button.
+7. Change the branch name to **lab4/dependency-vulnerability** and click **Propose changes** to start a pull request.
+8. Use the **Copilot** button in the formatting bar to generate a PR summary for you.
+9. Click the **Create pull request** button.
+10. Wait for the dependency review job to finish.
+11. It should make a comment to the pull request with a note that it found a vulnerable package dependency. In fact, adding this one package would introduce 3 new vulnerabilities to our codebase.
 
 <details>
   <img src="images/lab-4-2-2.png"/>
 </details>
 
-7. Create a pull request by navigating the the **Pull requests** tab and clicking on the **New pull request** button.
-8. Use Copilot to generate a PR summary for you
-9. Click the **Create pull request** button
-10. Wait for the dependency review job to finish.
-11. It should make a comment to the pull request with a note that it found a vulnerable package dependency. In fact, adding this one vulnerable package would introduce 3 new vulnerabilities to our codebase.
-
-<details>
-  <img src="images/lab-4-2-3.png"/>
-</details>
-
-13. Also, the status check will be marked as failed, preventing the pull request from being merged.
+12. Also, the status check will be marked as failed, preventing the pull request from being merged.
 
 ## Summary
 
 Celebrate 🎉! We just prevented a security vulnerability from entering our codebase! Without dependency review, if a pull request from this branch was opened to main, nothing would prevent the vulnerability from being introduced.
 
 In the next lab, we are going to go hands-on with secret scanning, and see how we can use push protection to stop secrets from being pushed to GitHub.
+
+➡️ Head back to the [labs](README.md) page to continue on to the next lab.
