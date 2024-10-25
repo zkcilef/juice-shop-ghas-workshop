@@ -49,6 +49,7 @@ Although Dependabot isn't part of the GitHub Advanced Security product suite, it
 1. Next, let's enable **Code Scanning with CodeQL**. These settings are also under the **Code security** settings page.
 2. Click the **Enable** button next to GitHub Advanced Security.
 3. A prompt will confirm that you want to **Enable GitHub Advanced Security for this repository** - click the button.
+    - The prompt tells you how many GitHub Advanced Security licenses you would consume by enabling this feature - which is useful if you are an organization owner and want to ensure you have enough licenses for your organization.
 4. Underneath the GitHub Advanced Security | Code Scanning heading, click the **Set up** button in the **CodeQL analysis** row.
 5. There are two options: **Default** and **Advanced**. Select the **Default** option and review the settings.
     - For this lab, we will use the **Default** setup which creates a managed Actions workflow (i.e. you will not see a file committed to the repo). You can use the Advanced option to manage your code scanning workflow as a GitHub Actions workflow YAML file committed to the repo. The **Default** option is a great option to get started quickly to enable code scanning in a repository without needing to commit any additional code.
