@@ -1,9 +1,13 @@
 
 <h1 align="center">Securing your code with GitHub Advanced Security</h1>
-<h5 align="center">@joshjohanning @mickeygousset</h3>
+
+<h5 align="center">
+  <img src="https://github.com/user-attachments/assets/6462fa90-6332-4e2b-8f34-ecd0b3932596" alt="Securing your code with GitHub Advanced Security" width="50%">
+</h5>
+
+<h5 align="center"><a href="https://github.com/joshjohanning">@joshjohanning</a> <a href="https://github.com/mickeygousset">@mickeygousset</a></h3>
 
 <p align="center">
-  <a href="#mega-prerequisites">Prerequisites</a>
   <a href="#workshop-labs">Workshop Labs</a>
   <a href="#book-resources">Resources</a>
 </p>
