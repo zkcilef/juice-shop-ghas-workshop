@@ -7,4 +7,4 @@
 5. [Lab 5 - Hands-on with Secret Scanning (secret scanning with push protections)](./lab5.md)
 6. [Lab 6 - Hands-on with Security Overview](./lab6.md)
 7. [Extra credit: Advanced CodeQL Setup](./lab7-ec.md)
-8. [Extra credit: Custom Secret Scanning Patterns](./lab8-ec.md)
+8. [Extra credit: Custom Patterns for Secret Scanning](./lab8-ec.md)

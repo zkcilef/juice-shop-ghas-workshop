@@ -75,7 +75,7 @@ This open-ended extra credit lab will have you switch to the advanced CodeQL set
 
 ---
 
-### Extra Credit: Custom Secret Scanning Patterns
+### Extra Credit: Custom Patterns for Secret Scanning
 
 This open-ended extra credit lab will have you create a custom secret scanning pattern.
 
