@@ -59,7 +59,7 @@ This lab will have you utilize Secret Scanning with Push Protection to prevent s
 
 This lab will teach you how to effectively use the Security Overview to review and alerts and coverage in an organization.
 
-- Get started here - [Lab 5](./_labs/lab6.md)
+- Get started here - [Lab 6](./_labs/lab6.md)
 
 ---
 

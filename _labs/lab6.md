@@ -1,4 +1,4 @@
-# Lab 5 - Hands-on with Security Overview
+# Lab 6 - Hands-on with Security Overview
 
 We've covered how to review alerts in a single repository, but how is your org or team doing? Next, we'll check out the Security Overview at the organizational level to see how we can get a high-level view of the security posture of our organization.
 
