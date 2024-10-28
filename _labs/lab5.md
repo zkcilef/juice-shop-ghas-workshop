@@ -42,3 +42,5 @@ This lab covers parts of the following exam domains:
 Celebrate 🎉! We just prevented a secret from entering our codebase!
 
 And there you have it. You should now have a good grasp on what GitHub Advanced Security is, how it works, and how to implement it. So get out there and keep your company secured!
+
+➡️ Head back to the [labs](README.md) page to continue on to the next lab.
