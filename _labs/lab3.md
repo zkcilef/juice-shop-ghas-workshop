@@ -95,26 +95,19 @@ Without a ruleset (GitHub's new version of branch protections), even though Code
     1. Give the ruleset a **name** (any name is fine)
     2. Change the **enforcement status** to **Active**.
     3. Under **target branches**, click **Add target** and select **Include default branch**.
-    4. Scroll down and check the **Require status checks to pass** box
-    5. Click on the **+ Add checks ▾** button
-    6. Search for **CodeQL**. We should see a suggested **CodeQL** check show up with **GitHub Advanced Security** text to the right. Add it.
+    4. Scroll down and check the **Require code scanning results** box
+    5. The CodeQL tool should already be there - there's nothing to change
+5. Scroll down and click the **Create** button.
 
 <details>
   <img src="images/lab-3-2-2.png"/>
-</details>
-
-5. Let's also search for **Analyze**. We should see a **Analyze (javascript-typescript)** check show up. Add it.
-6. Scroll down and click the **Create** button.
-
-<details>
-  <img src="images/lab-3-2-3.png"/>
 </details>
 
 7. With the ruleset created, both the JavaScript scan has to finish and no vulnerabilities found with CodeQL in order to merge the code.
 8. Navigate back to our open PR. The **Merge pull request** button should now be grayed out, preventing us from merging vulnerable code.
 
 <details>
-  <img src="images/lab-3-2-4.png"/>
+  <img src="images/lab-3-2-3.png"/>
 </details>
 
 9. Review the **Copilot Autofix suggestion** - it offers a similar suggestion to what Copilot in our IDE did!
