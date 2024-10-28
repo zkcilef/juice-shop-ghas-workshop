@@ -59,6 +59,30 @@ This lab will have you utilize Secret Scanning with Push Protection to prevent s
 
 ---
 
+### Lab 6 - Hands-on with Security Overview
+
+This lab will teach you how to effectively use the Security Overview to review and alerts and coverage in an organization.
+
+- Get started here - [Lab 6](./_labs/lab6.md)
+
+---
+
+### Extra Credit: Advanced CodeQL Setup
+
+This open-ended extra credit lab will have you switch to the advanced CodeQL setup.
+
+- Get started here - [Extra Credit Lab 1](./_labs/lab7-ec.md)
+
+---
+
+### Extra Credit: Custom Secret Scanning Patterns
+
+This open-ended extra credit lab will have you create a custom secret scanning pattern.
+
+- Get started here - [Extra Credit Lab 2](./_labs/lab8-ec.md)
+
+---
+
 ## :book: Resources
 - [GitHub Docs - About GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
 - [GitHub Security Learning Pathway](https://resources.github.com/learn/pathways/security/)
