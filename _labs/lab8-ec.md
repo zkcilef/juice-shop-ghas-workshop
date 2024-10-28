@@ -11,7 +11,7 @@ This lab covers parts of the following exam domains:
 
 Your assignment here is to implement a secret scanning custom pattern. You can start under the **Settings** --> **Code Security and Analysis** page.
 
-If you are looking for an example of what to search for, we suggest creating a pattern for finding a credit card! Mickey may or may not have accidentally committed his credit card to the repository and we need to alert on this.
+If you are looking for an example of what to search for, we suggest creating a pattern for finding a credit card! Mickey may or may not have accidentally committed customer credit card numbers to the repository and we need to alert on this.
 
 Create a pattern, run a dry-run, and hopefully you find the pattern! If so, save the custom secret scanning pattern to implement.
 
