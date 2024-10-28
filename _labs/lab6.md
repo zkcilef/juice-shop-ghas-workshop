@@ -4,8 +4,6 @@ We've covered how to review alerts in a single repository, but how is your org o
 
 This lab covers parts of the following exam domains:
 
-TODO: dunno what domains
-
 - Domain 6: Describe GitHub Advanced Security best practices
 
 ## Exercise 1: Navigating to Security Overview
