@@ -84,5 +84,6 @@ This open-ended extra credit lab will have you create a custom secret scanning p
 ---
 
 ## :book: Resources
+
 - [GitHub Docs - About GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
 - [GitHub Security Learning Pathway](https://resources.github.com/learn/pathways/security/)
