@@ -36,8 +36,10 @@ The Security Overview can be used by anyone inside of an organization; it shows 
 6. On the right-hand side, click the **Teams ▾** button/dropdown.
 7. Click on the **all users** team - this team is only added to a different sample repo, so note how the total alerts changes.
     - This can be really useful for a manager, architect, or developer to see which repositories assigned to the teams have security features enabled and how many alerts they are generating.
-8. At the bottom of the options on the left, click the **+** to the right of security campaigns. Pick whichever option you want!
+8. At the bottom of the options on the left, you will see **Security Campaigns**.
     - Security campaigns are a new feature designed to help administrators and security managers create targeted campaigns and track remediation progress effectively.
+9. ⚠️ Please don't create a new security campaign as to not introduce noise to your fellow attendees ⚠️, but click on the existing campaign here (**SQL injection (CWE-89)**) to check it out!
+    - How are we doing on our goal?
 
 ## Summary
 
