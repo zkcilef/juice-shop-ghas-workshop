@@ -15,7 +15,6 @@ Why might you want to use the advanced setup? Here are some reasons:
 - More control over triggers and schedule
 - When pulling in packages from a private feed, you may have to provide instructions on authorizing to the NuGet, NPM, Maven, etc. feed.
 - For compiled languages, providing more instructions on how to build the code
-- Ability to customize your runners TODO: is this true? i think you can use code-scanning label with default workflow but i cannot remember
 - Ability to customize the CodeQL configuration (such as query suites used)
 - Manage code scanning settings "as code"
 - Utilize 3rd party code scanning tooling
