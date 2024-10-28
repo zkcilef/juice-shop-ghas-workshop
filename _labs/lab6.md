@@ -45,6 +45,8 @@ The Security Overview can be used by anyone inside of an organization; it shows 
 
 That's the security overview! Use these views to monitor and manage your security posture effectively. By leveraging the detailed insights provided in each section, you can identify potential threats, take proactive measures, and ensure your systems remain secure.
 
+If you want to learn more about the security overview or about what a particular view shows, check out the [docs](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)!
+
 Congrats, you have finished all of the main labs! 🎉 If you have time or are up for a challenge, try out the extra credit labs!
 
 ➡️ Head back to the [labs](README.md) page to try your hand at the extra credit labs.
