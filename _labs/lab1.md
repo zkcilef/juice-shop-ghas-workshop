@@ -11,11 +11,11 @@ This lab covers parts of the following exam domains:
 > [!TIP]
 > We recommend opening up two browser windows, one with the lab and one with the working copy of your repo!
 
-## Exercise 1: Enabling the security settings
+## Enabling the security settings
 
-In this exercise, you will be guided through the process of enabling the remaining GHAS features. Then you will be shown how to use the features to secure your code.
+In the following exercises, you will be guided through the process of enabling the remaining GHAS features. Then you will be shown how to use the features to secure your code.
 
-### Exercise 2: Enable Dependabot
+### Exercise 1: Enable Dependabot
 
 Although Dependabot isn't part of the GitHub Advanced Security product suite, it is still an important tool to discuss from an overall security posture.
 
@@ -31,7 +31,7 @@ Although Dependabot isn't part of the GitHub Advanced Security product suite, it
   <img src="images/lab-1-1-1.png"/>
 </details>
 
-### Exercise 3: Enable Code Scanning
+### Exercise 2: Enable Code Scanning
 
 1. Next, let's enable **Code Scanning with CodeQL**. These settings are also under the **Code security** settings page.
 2. Click the **Enable** button next to GitHub Advanced Security.
@@ -63,7 +63,7 @@ Although Dependabot isn't part of the GitHub Advanced Security product suite, it
 
 7. Optionally, configure the **Check runs failure threshold** - by default, a pull request will be blocked if there are any high or higher security alerts.
 
-### Exercise 4: Enable Secret Scanning
+### Exercise 3: Enable Secret Scanning
 
 1. Click on the **Enable** button to enable Secret Scanning.
 2. Check the box to **Scan for generic secrets**. This feature uses AI to find secrets/passwords that may be in your code that don't correspond to a known provider pattern.
