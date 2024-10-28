@@ -235,6 +235,7 @@ restoreOverwrittenFilesWithOriginals().then(() => {
     // @ts-expect-error FIXME assignment broken due to seemingly void return value
     res.end = function () {
       if (arguments.length) {
+        const card = '4539046288375491'
         const reqPath = req.originalUrl.replace(/\?.*$/, '')
         const currentFolder = reqPath.split('/').pop() as string
         arguments[0] = arguments[0].replace(/a href="([^"]+?)"/gi, function (matchString: string, matchedUrl: string) {

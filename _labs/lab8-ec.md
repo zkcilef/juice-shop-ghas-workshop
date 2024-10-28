@@ -2,8 +2,6 @@
 
 We are just using the out of the box secret scanning settings. Perhaps you are interested in finding other patterns, such as credit card patterns, committed in the code.
 
-TODO: we should commit a fake credit card number in the code so they can find it
-
 This lab covers parts of the following exam domains:
 
 - Domain 2: Configure and use secret scanning
@@ -19,6 +17,6 @@ Create a pattern, run a dry-run, and hopefully you find the pattern! If so, save
 
 ## Summary
 
-TODO: add content
+In this lab, you should have identified the credit card number that was accidentally committed. Custom secret scanning patterns offer an excellent way to implement additional scanning patterns that are crucial for your organization!
 
 ➡️ Head back to the [labs](README.md) page.
