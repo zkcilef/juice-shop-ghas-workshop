@@ -179,6 +179,7 @@
     "sqlite3": "^5.0.8",
     "svg-captcha": "^1.4.0",
     "swagger-ui-express": "^5.0.0",
+    "tar": "2.2.2",
     "ts-node-dev": "^1.1.6",
     "unzipper": "0.9.15",
     "web3": "^4.0.3",
