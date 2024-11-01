@@ -15,6 +15,7 @@ import { challenges } from '../data/datacache'
 import * as utils from '../lib/utils'
 const security = require('../lib/insecurity')
 const users = require('../data/datacache').users
+const secret = "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";
 
 // vuln-code-snippet start loginAdminChallenge loginBenderChallenge loginJimChallenge
 module.exports = function login () {
